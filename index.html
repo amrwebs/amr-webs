@@ -88,25 +88,44 @@
       </div>
     </section>
 
-    <!-- TRABAJOS -->
-    <section id="trabajos" class="section container">
-      <h2 class="section-title reveal">Trabajos</h2>
-      <p class="section-subtitle muted reveal">Algunos ejemplos recientes.</p>
-      <div class="grid gallery">
-        <figure class="shot reveal">
-          <div class="shot-img"></div>
-          <figcaption>Panel de gestión — escritorio</figcaption>
-        </figure>
-        <figure class="shot reveal" style="--d:0.05s">
-          <div class="shot-img"></div>
-          <figcaption>Landing page — web</figcaption>
-        </figure>
-        <figure class="shot reveal" style="--d:0.1s">
-          <div class="shot-img"></div>
-          <figcaption>Sistema de pagos — web</figcaption>
-        </figure>
+<!-- TRABAJOS -->
+<section id="trabajos" class="section container">
+  <h2 class="section-title reveal">Trabajos</h2>
+  <p class="section-subtitle muted reveal">Algunos ejemplos recientes.</p>
+  <div class="grid gallery">
+    
+    <figure class="shot reveal">
+      <div class="shot-img">
+        <img src="images/inicio.png" alt="Gym Master - Panel principal" onclick="openModal(this)">
       </div>
-    </section>
+      <figcaption>Gym Master</figcaption>
+    </figure>
+    
+    <figure class="shot reveal" style="--d:0.05s">
+      <div class="shot-img">
+        <img src="images/planes.png" alt="Gym Master - Planes" onclick="openModal(this)">
+      </div>
+      <figcaption>Planes</figcaption>
+    </figure>
+    
+    <figure class="shot reveal" style="--d:0.1s">
+      <div class="shot-img">
+        <img src="images/ingresos.png" alt="Gym Master - Socios" onclick="openModal(this)">
+      </div>
+      <figcaption>Ingresos</figcaption>
+    </figure>
+  
+  </div>
+</section>
+
+<!-- MODAL PARA VER IMAGENES -->
+<div id="imgModal" class="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="caption"></div>
+</div>
+
+
 
     <!-- CONTACTO -->
     <section id="contacto" class="section container">
@@ -140,6 +159,15 @@
       <a href="#contacto">Contacto</a>
     </div>
   </footer>
+
+  <!-- Lightbox -->
+<div id="lightbox" class="lightbox" aria-modal="true" role="dialog">
+  <button id="lightboxClose" class="lightbox-close" aria-label="Cerrar">✕</button>
+  <div>
+    <img id="lightboxImg" src="" alt="">
+    <div id="lightboxCap" class="lightbox-cap"></div>
+  </div>
+</div>
 
   <script src="script.js"></script>
 </body>

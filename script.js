@@ -1,52 +1,55 @@
-// Año en footer
-document.getElementById('year').textContent = new Date().getFullYear();
-
 // Menú móvil
 const navToggle = document.getElementById('navToggle');
 const menu = document.getElementById('menu');
-navToggle?.addEventListener('click', () => {
-  menu.classList.toggle('open');
-  navToggle.classList.toggle('open');
-});
+navToggle?.addEventListener('click', () => menu.classList.toggle('open'));
 
-// Scroll reveal básico
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.style.animationPlayState = 'running';
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
+// Año en footer
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-document.querySelectorAll('.reveal').forEach(el => {
-  el.style.animationPlayState = 'paused';
-  observer.observe(el);
-});
-
-// Formulario de contacto (demo)
+// Contacto (demo)
 function handleContact(e){
   e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target));
-  alert(`¡Gracias ${data.nombre}! Te escribo a ${data.email} pronto.`);
+  alert('¡Gracias! Te responderé a la brevedad.');
   e.target.reset();
   return false;
 }
-window.handleContact = handleContact;
 
-// Canvas ruido sutil (fondo)
+// LIGHTBOX simple
+const lightbox   = document.getElementById('lightbox');
+const lbImg      = document.getElementById('lightboxImg');
+const lbCap      = document.getElementById('lightboxCap');
+const lbClose    = document.getElementById('lightboxClose');
+
+document.querySelectorAll('.shot-img').forEach(el => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
+    const img = el.querySelector('img');
+    if (!img) return;
+    lbImg.src = img.src;
+    lbCap.textContent = img.alt || '';
+    lightbox.classList.add('open');
+  });
+});
+lbClose?.addEventListener('click', ()=> lightbox.classList.remove('open'));
+lightbox?.addEventListener('click', (e)=>{
+  if(e.target === lightbox) lightbox.classList.remove('open');
+});
+
+// Fondo ruido (suave)
 const c = document.getElementById('bg-noise');
-const ctx = c.getContext('2d');
-function resize(){ c.width = innerWidth; c.height = innerHeight; }
-addEventListener('resize', resize); resize();
-
-function noise(){
-  const id = ctx.createImageData(c.width, c.height);
-  const b = id.data;
-  for(let i=0;i<b.length;i+=4){
-    const v = 10 + Math.random()*20; // brillo bajo
-    b[i]=b[i+1]=b[i+2]=v; b[i+3]=35; // alpha sutil
-  }
-  ctx.putImageData(id, 0, 0);
+if (c) {
+  const ctx = c.getContext('2d');
+  const resize = ()=>{
+    c.width = innerWidth; c.height = innerHeight;
+    const imgData = ctx.createImageData(c.width, c.height);
+    for(let i=0;i<imgData.data.length;i+=4){
+      const v = 240 + (Math.random()*15|0);
+      imgData.data[i]=imgData.data[i+1]=imgData.data[i+2]=v;
+      imgData.data[i+3]=15; // alpha bajo
+    }
+    ctx.putImageData(imgData,0,0);
+  };
+  addEventListener('resize', resize, {passive:true});
+  resize();
 }
-noise();
