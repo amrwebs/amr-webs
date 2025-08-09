@@ -1,0 +1,158 @@
+:root{
+  --bg:#0b1220;         /* azul mar muy oscuro */
+  --bg-2:#0d1630;
+  --card:#101a36;
+  --border:#1b2a4a;
+  --text:#e6edf6;
+  --muted:#9bb0cf;
+  --primary:#26c6ff;    /* acento celeste */
+  --primary-2:#2aa7ff;
+  --shadow: 0 20px 50px -20px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--text);
+  background: radial-gradient(1000px 600px at 70% -10%, rgba(38,198,255,.12), transparent 60%) ,
+              radial-gradient(700px 400px at 0% 20%, rgba(42,167,255,.10), transparent 60%),
+              var(--bg);
+  overflow-x:hidden;
+}
+
+.container{width:min(1200px, 90%); margin-inline:auto}
+.muted{color:var(--muted)}
+
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:18px 0; position:sticky; top:0; z-index:50;
+  backdrop-filter: blur(10px) saturate(140%);
+}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--text)}
+.logo{
+  display:inline-grid; place-items:center;
+  width:36px; height:36px; border-radius:10px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+  color:#081223; font-weight:800;
+  letter-spacing:0.5px;
+}
+.brand-text{font-weight:800}
+.menu{display:flex; gap:20px}
+.menu a{color:var(--muted); text-decoration:none; font-weight:600}
+.menu a:hover{color:var(--text)}
+.nav-toggle{display:none; background:none; border:0; cursor:pointer}
+.nav-toggle span{display:block; width:26px; height:2px; background:var(--text); margin:6px 0; border-radius:2px}
+
+.hero{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center;
+  min-height: calc(100vh - 90px);
+}
+.hero-text h1{font-size:clamp(32px,5vw,56px); line-height:1.05; margin:0 0 14px}
+.gradient{
+  background: linear-gradient(90deg, var(--primary), #76e4ff 40%, var(--primary-2));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.cta{display:flex; gap:14px; margin-top:14px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:700;
+  border:1px solid transparent; transition:.2s transform, .2s box-shadow, .2s background;
+}
+.btn.primary{background:linear-gradient(135deg, var(--primary), var(--primary-2)); color:#06101f; box-shadow: var(--shadow)}
+.btn.primary:hover{transform: translateY(-2px)}
+.btn.ghost{border-color:var(--border); color:var(--text); background:transparent}
+.btn.ghost:hover{background:rgba(255,255,255,.04)}
+
+.badges{display:flex; gap:10px; flex-wrap:wrap; margin:16px 0 0; padding:0; list-style:none}
+.badges li{
+  padding:8px 12px; border-radius:999px; border:1px solid var(--border);
+  background: rgba(16,26,54,.55); color:var(--muted); font-weight:600; font-size:14px;
+}
+
+.hero-visual{display:grid; place-items:center}
+.card-ui{
+  width:min(420px, 90%); border-radius:16px; background:linear-gradient(180deg,#101a36,#0e1730);
+  border:1px solid var(--border); box-shadow:var(--shadow); padding:0;
+}
+.card-header{display:flex; gap:6px; padding:12px; border-bottom:1px solid var(--border); background:#0b1430}
+.card-header .dot{width:10px; height:10px; border-radius:50%; background:linear-gradient(135deg,#ff6871,#ffb199)}
+.card-body{padding:16px}
+.code-line{height:12px; border-radius:6px; background:linear-gradient(90deg,#23335a,#1c2b4e)}
+.code-line + .code-line{margin-top:10px}
+.w90{width:90%}.w80{width:80%}.w70{width:70%}.w60{width:60%}.w40{width:40%}
+
+.section{padding:70px 0}
+.section-title{font-size:clamp(26px,3.6vw,36px); margin:0 0 6px}
+.section-subtitle{margin:0 0 28px}
+
+.grid{display:grid; gap:18px}
+.cards{grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
+.card{
+  background:linear-gradient(180deg,#0f1a38,#0d1833);
+  border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:var(--shadow);
+}
+.card .icon{font-size:28px; margin-bottom:8px}
+.card h3{margin:6px 0 8px}
+
+.gallery{grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+.shot{
+  margin:0; border-radius:14px; overflow:hidden; border:1px solid var(--border);
+  background:linear-gradient(180deg,#0f1a38,#0d1833);
+}
+.shot-img{
+  aspect-ratio: 16/10;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.35)),
+    radial-gradient(100% 100% at 70% 30%, rgba(38,198,255,.25), transparent 60%),
+    repeating-linear-gradient(90deg, #16244a 0 2px, #132043 2px 4px);
+  filter:saturate(110%);
+}
+.shot figcaption{padding:12px 14px; color:var(--muted)}
+
+.contact{
+  display:grid; gap:14px; grid-template-columns:1fr 1fr;
+  background:linear-gradient(180deg,#0f1a38,#0d1833);
+  border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow);
+}
+.contact .field{display:flex; flex-direction:column; gap:8px}
+.contact .field:nth-child(3){grid-column:1 / -1}
+input, textarea{
+  width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border);
+  background:#0b1224; color:var(--text); outline:none;
+}
+input:focus, textarea:focus{border-color:#2a7bff; box-shadow:0 0 0 3px rgba(42,167,255,.18)}
+
+.footer{
+  display:flex; align-items:center; justify-content:space-between; padding:30px 0;
+  border-top:1px solid var(--border); margin-top:40px; color:var(--muted)
+}
+.footer a{color:var(--muted); text-decoration:none}
+.footer a:hover{color:var(--text)}
+.footer-links{display:flex; gap:16px; flex-wrap:wrap}
+
+/* Responsive */
+@media (max-width: 880px){
+  .hero{grid-template-columns:1fr; padding:30px 0 10px}
+  .menu{position:fixed; inset:64px 0 auto 0; background:rgba(10,16,34,.9); backdrop-filter: blur(8px); padding:14px 20px; display:none; flex-direction:column; gap:10px; border-bottom:1px solid var(--border)}
+  .menu.open{display:flex}
+  .nav-toggle{display:block}
+}
+
+/* Reveal */
+.reveal{opacity:0; transform: translateY(16px); animation:reveal .7s ease forwards; animation-delay: var(--d, 0s)}
+@keyframes reveal{to{opacity:1; transform:none}}
+
+/* Fondos decorativos */
+#bg-noise{
+  position:fixed; inset:0; width:100%; height:100%; z-index:-2; opacity:.07; pointer-events:none;
+}
+.glow{
+  position:fixed; width:520px; height:520px; border-radius:50%;
+  filter: blur(80px); z-index:-3; opacity:.28; pointer-events:none;
+  background: radial-gradient(closest-side, rgba(38,198,255,.45), rgba(38,198,255,0));
+}
+.glow-1{top:-160px; right:-140px}
+.glow-2{bottom:-160px; left:-140px}

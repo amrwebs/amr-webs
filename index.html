@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AMR WEBS — Desarrollo de aplicaciones y sitios web</title>
+  <meta name="description" content="AMR WEBS — Adriel Rotela. Desarrollo de aplicaciones de escritorio y páginas web modernas." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Decoración de fondo -->
+  <canvas id="bg-noise" aria-hidden="true"></canvas>
+  <div class="glow glow-1"></div>
+  <div class="glow glow-2"></div>
+
+  <header class="container nav">
+    <a class="brand" href="#home">
+      <span class="logo">AMR</span>
+      <span class="brand-text">AMR WEBS</span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="menu" id="menu">
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-text">
+        <h1 class="reveal">Desarrollo a la medida<br><span class="gradient">aplicaciones de escritorio</span> & <span class="gradient">páginas web</span></h1>
+        <p class="muted reveal" style="--d:0.05s">
+          Soy <strong>Adriel Rotela</strong>, fundador de <strong>AMR WEBS</strong>. Construyo soluciones modernas, rápidas y seguras para impulsar tu negocio.
+        </p>
+        <div class="cta reveal" style="--d:0.1s">
+          <a href="#contacto" class="btn primary">Empezar ahora</a>
+          <a href="#trabajos" class="btn ghost">Ver trabajos</a>
+        </div>
+        <ul class="badges reveal" style="--d:0.15s">
+          <li>⚡ Performance</li>
+          <li>🔒 Seguridad</li>
+          <li>💻 Windows Apps</li>
+          <li>🌐 Web Moderna</li>
+        </ul>
+      </div>
+      <div class="hero-visual reveal" style="--d:0.2s" aria-hidden="true">
+        <div class="card-ui">
+          <div class="card-header">
+            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+          </div>
+          <div class="card-body">
+            <div class="code-line w80"></div>
+            <div class="code-line w60"></div>
+            <div class="code-line w90"></div>
+            <div class="code-line w40"></div>
+            <div class="code-line w70"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section container">
+      <h2 class="section-title reveal">Servicios</h2>
+      <p class="section-subtitle muted reveal">Soluciones completas, de idea a producción.</p>
+      <div class="grid cards">
+        <article class="card reveal">
+          <div class="icon">🖥️</div>
+          <h3>Apps de Escritorio</h3>
+          <p class="muted">Herramientas rápidas y robustas para Windows (instalador, base de datos local, UI moderna).</p>
+        </article>
+        <article class="card reveal" style="--d:0.05s">
+          <div class="icon">🌐</div>
+          <h3>Sitios Web</h3>
+          <p class="muted">Landing pages y sitios corporativos optimizados para SEO y alto rendimiento.</p>
+        </article>
+        <article class="card reveal" style="--d:0.1s">
+          <div class="icon">⚙️</div>
+          <h3>Sistemas a Medida</h3>
+          <p class="muted">Desarrollo integral: diseño, backend, bases de datos, despliegue y soporte.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRABAJOS -->
+    <section id="trabajos" class="section container">
+      <h2 class="section-title reveal">Trabajos</h2>
+      <p class="section-subtitle muted reveal">Algunos ejemplos recientes.</p>
+      <div class="grid gallery">
+        <figure class="shot reveal">
+          <div class="shot-img"></div>
+          <figcaption>Panel de gestión — escritorio</figcaption>
+        </figure>
+        <figure class="shot reveal" style="--d:0.05s">
+          <div class="shot-img"></div>
+          <figcaption>Landing page — web</figcaption>
+        </figure>
+        <figure class="shot reveal" style="--d:0.1s">
+          <div class="shot-img"></div>
+          <figcaption>Sistema de pagos — web</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section container">
+      <h2 class="section-title reveal">Contacto</h2>
+      <p class="section-subtitle muted reveal">Contame tu idea. Te respondo a la brevedad.</p>
+      <form class="contact reveal" style="--d:0.05s" onsubmit="return handleContact(event)">
+        <div class="field">
+          <label>Nombre</label>
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="tu@email.com" required />
+        </div>
+        <div class="field">
+          <label>Mensaje</label>
+          <textarea name="mensaje" rows="4" placeholder="¿Qué necesitas construir?" required></textarea>
+        </div>
+        <button class="btn primary">Enviar</button>
+        <p class="mini muted">O escribime directo: <a href="mailto:contacto@amrwebs.dev">contacto@amrwebs.dev</a></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div>© <span id="year"></span> AMR WEBS — Adriel Rotela</div>
+    <div class="footer-links">
+      <a href="#home">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
