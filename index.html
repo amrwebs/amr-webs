@@ -88,35 +88,59 @@
       </div>
     </section>
 
+
 <!-- TRABAJOS -->
 <section id="trabajos" class="section container">
-  <h2 class="section-title reveal">Trabajos</h2>
-  <p class="section-subtitle muted reveal">Algunos ejemplos recientes.</p>
-  <div class="grid gallery">
-    
-    <figure class="shot reveal">
-      <div class="shot-img">
-        <img src="inicio.png" alt="Gym Master - Panel principal" onclick="openModal(this)">
+  <h2 class="section-title reveal">Taketo Shop — Gestión de tiendas de ropa</h2>
+  <p class="section-subtitle muted reveal">Software profesional creado por <strong>AMR WEBS</strong> para administrar tu tienda de indumentaria de punta a punta.</p>
+
+  <div class="app-container">
+    <div class="app-card app-text">
+      <p class="muted">
+        Taketo Shop te permite gestionar productos, <strong>stock por talles</strong>, categorías, ventas y comprobantes del negocio, con métricas claras de ingresos y stock.
+      </p>
+      <ul class="features">
+        <li>Inventario por talles y categorías personalizadas</li>
+        <li>Registro de ventas ágil y comprobantes</li>
+        <li>Panel con métricas de ingresos, ventas y stock</li>
+        <li>Interfaz moderna y simple para el día a día</li>
+      </ul>
+      <div class="cta">
+        <a class="btn-cta" href="https://wa.me/message/4JYHTJHRW2NBI1" target="_blank" rel="noopener">🚀 Solicitar acceso</a>
       </div>
-      <figcaption>Gym Master</figcaption>
-    </figure>
-    
-    <figure class="shot reveal" style="--d:0.05s">
-      <div class="shot-img">
-        <img src="planes.png" alt="Gym Master - Planes" onclick="openModal(this)">
+    </div>
+
+    <div class="app-card app-video">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/sCyfbz72eP8?rel=0&modestbranding=1&playsinline=1"
+          title="Demo Taketo Shop — AMR WEBS"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
       </div>
-      <figcaption>Planes</figcaption>
-    </figure>
-    
-    <figure class="shot reveal" style="--d:0.1s">
-      <div class="shot-img">
-        <img src="ingresos.png" alt="Gym Master - Socios" onclick="openModal(this)">
-      </div>
-      <figcaption>Ingresos</figcaption>
-    </figure>
-  
+      <p class="video-caption">Demo en video: recorrido rápido por Taketo Shop.</p>
+    </div>
   </div>
 </section>
+
+<style>
+  /* ===== Taketo section (scoped) ===== */
+  .app-container{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;align-items:start}
+  .app-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:22px}
+  .features{margin:10px 0 16px 18px}
+  .features li{margin:6px 0}
+  .btn-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;
+           background:linear-gradient(180deg,#16a34a,#22c55e);color:#05210f;text-decoration:none;font-weight:700;
+           border:1px solid #0a7a33;box-shadow:0 10px 20px -10px rgba(34,197,94,.35)}
+  .btn-cta:hover{filter:brightness(1.05)}
+  .app-video .video-wrap{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;
+                         box-shadow:0 10px 30px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.1)}
+  .app-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-caption{margin:10px 2px 0;color:#94a3b8;font-size:.95rem}
+  @media (max-width:960px){ .app-container{grid-template-columns:1fr} }
+</style>
+
 
 <!-- MODAL PARA VER IMAGENES -->
 <div id="imgModal" class="modal" onclick="closeModal()">
@@ -166,4 +190,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
